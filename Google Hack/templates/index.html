@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Dark and faded effect */
+            z-index: -1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: rgba(34, 34, 34, 0.85); /* Semi-transparent background */
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        input, select {
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #f06292;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #ec407a;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            background-color: #444;
+        }
+
+        td {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Product Recommendation System</h1>
+
+    <div class="observations">
+        <h3>Observations</h3>
+        <ul>
+            <li>A healthier alternative to your selected product can improve your overall diet.</li>
+            <li>Choosing low-sugar and low-calorie products can reduce the risk of various diseases.</li>
+            <li>Product suggestions are based on your selected disease and uploaded image content.</li>
+        </ul>
+    </div>
+
+    <div class="form-section">
+        <label for="disease">Disease Name:</label>
+        <select id="disease">
+            <option value="diabetes">Diabetes</option>
+            <option value="hypertension">Hypertension</option>
+            <option value="obesity">Obesity</option>
+            <option value="heart_disease">Heart Disease</option>
+        </select>
+
+        <br>
+        <label for="imageUpload">Upload Product Image:</label>
+        <input type="file" id="imageUpload" accept="image/*">
+
+        <br>
+        <button onclick="generateRecommendations()">Recommend</button>
+
+        <div id="recommendationTable" style="display: none;">
+            <h3>Recommended Healthier Products</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Calories</th>
+                        <th>Sugar (g)</th>
+                        <th>Fat (g)</th>
+                        <th>Protein (g)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Diet Coke</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Coconut Water</td>
+                        <td>45</td>
+                        <td>6</td>
+                        <td>0.5</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Sparkling Water</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Green Tea (unsweetened)</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function generateRecommendations() {
+        document.getElementById('recommendationTable').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

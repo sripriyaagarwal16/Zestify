@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['parle-g']
+
+roboflow:
+  workspace: my-workspace-2ihlf
+  project: parle-g
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/my-workspace-2ihlf/parle-g/dataset/1
